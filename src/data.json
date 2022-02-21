@@ -1,0 +1,37 @@
+[
+    {
+      "id": "0",
+      "productName": "Smartphone",
+      "companyName": "Samsung",
+      "description": "Best phone in the market",
+      "date": "2018-11-28 13:30"
+    },
+    {
+      "id": "1",
+      "productName": "TV",
+      "companyName": "Sony",
+      "description": "This is a good TV",
+      "date": "2018-11-28 14:55"
+    },
+    {
+      "id": "2",
+      "productName": "Microwave",
+      "companyName": "Samsung",
+      "description": "Makes things hot",
+      "date": "2018-11-28 18:42"
+    },
+    {
+      "id": "3",
+      "productName": "Smartphone",
+      "companyName": "Xaiomi",
+      "description": "Made in china",
+      "date": "2018-11-28 23:11"
+    },
+    {
+      "id": "4",
+      "productName": "Electric Scooter",
+      "companyName": "Xaiomi",
+      "description": "Goes really fast",
+      "date": "2018-11-29 13:30"
+    }
+]

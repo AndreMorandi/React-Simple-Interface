@@ -5,56 +5,56 @@ const Items = () => {
     return (
         <div>
             <button className="bg-blue-400 text-white px-2 py-3 w-full text-left rounded-t-md">
-            <div><BiCalendarPlus className="inline-block align-text-top" />  Add item</div>
+            <div><BiCalendarPlus className="inline-block align-text-top" /> Add item</div>
             </button>
             <div className="border-r-2 border-b-2 border-l-2 border-light-blue-500 rounded-b-md pl-4 pr-4 pb-4">
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-                    <label htmlFor="ownerName" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                    <label htmlFor="productName" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Product Name
                     </label>
                     <div className="mt-1 sm:mt-0 sm:col-span-2">
-                    <input type="text" name="ownerName" id="ownerName"
+                    <input type="text" name="productName" id="productName"
                         className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                     </div>
                 </div>
         
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-                    <label htmlFor="petName" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Company
                     </label>
                     <div className="mt-1 sm:mt-0 sm:col-span-2">
-                    <input type="text" name="petName" id="petName"
+                    <input type="text" name="companyName" id="companyName"
                         className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                     </div>
                 </div>
         
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-                    <label htmlFor="aptDate" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                    <label htmlFor="date" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Date
                     </label>
                     <div className="mt-1 sm:mt-0 sm:col-span-2">
-                    <input type="date" name="aptDate" id="aptDate"
+                    <input type="date" name="date" id="date"
                         className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                     </div>
                 </div>
         
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-                    <label htmlFor="aptTime" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                    <label htmlFor="time" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Time
                     </label>
                     <div className="mt-1 sm:mt-0 sm:col-span-2">
-                    <input type="time" name="aptTime" id="aptTime"
+                    <input type="time" name="time" id="time"
                         className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                     </div>
                 </div>
         
                 <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start  sm:pt-5">
-                    <label htmlFor="aptNotes" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Description
                     </label>
                     <div className="mt-1 sm:mt-0 sm:col-span-2">
-                    <textarea id="aptNotes" name="aptNotes" rows="3"
-                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Detailed comments about the condition"></textarea>
+                    <textarea id="description" name="description" rows="3"
+                        className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Description about the product"></textarea>
                     </div>
                 </div>
         
