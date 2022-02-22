@@ -34,6 +34,9 @@ function App() {
           itemList.map(item => (
             <ItemInfo key={item.id}
                 item={item}
+                onDeleteItem = {
+                  itemId => setItemList(itemList.filter(item => item.id != itemId))
+                }
             />
           ))
         }
