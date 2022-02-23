@@ -7,7 +7,9 @@ import Search from "./components/Search";
 function App() {
 
   let [itemList, setItemList] = useState([]);
-  let [query, setQuery] = useState("");
+  let [query, setQuery] = useState(""); 
+  let [sortBy, setSortBy] = useState("productName");
+  let [orderBy, setOrderBy] = useState("asc");
 
   const filteredItems = itemList.filter(
     item => {
@@ -17,7 +19,13 @@ function App() {
         item.description.toLowerCase().includes(query.toLowerCase())
       )
     }
-  )
+  ).sort((a,b) => {
+    let order = (orderBy === 'asc') ? 1 : -1;
+    return (
+      a[sortBy].toLowerCase() < b[sortBy].toLowerCase()
+        ? -1 * order : 1 * order
+    )
+  })
 
   const fetchData = useCallback(() => {
     fetch('./data.json') // Anything in the public folder will appear at the same level of your application once it has been pushed up into a server.
@@ -38,7 +46,9 @@ function App() {
           <BiCart className="inline-block align-top text-blue-500"/> Your items
       </h1>
       <Items />
-      <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
+      <Search query={query} onQueryChange={myQuery => setQuery(myQuery)} 
+        orderBy={orderBy} onOrderByChange={myOrder => setOrderBy(myOrder)} 
+        sortBy={sortBy} onSortByChange={mySort => setSortBy(mySort)}/>
 
       <ul className="divide-y divide-gray-200">
         {
@@ -46,7 +56,7 @@ function App() {
             <ItemInfo key={item.id}
                 item={item}
                 onDeleteItem = {
-                  itemId => setItemList(itemList.filter(item => item.id != itemId))
+                  itemId => setItemList(itemList.filter(item => item.id !== itemId))
                 }
             />
           ))
