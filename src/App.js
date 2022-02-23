@@ -45,7 +45,7 @@ function App() {
       <h1 className="text-5xl mb-3">
           <BiCart className="inline-block align-top text-blue-500"/> Your items
       </h1>
-      <Items />
+      <Items onSendItem={myItem => setItemList([...itemList, myItem])} lastId={itemList.reduce((max, item) => Number(item.id) > max ? Number(item.id) : max, 0)}/>
       <Search query={query} onQueryChange={myQuery => setQuery(myQuery)} 
         orderBy={orderBy} onOrderByChange={myOrder => setOrderBy(myOrder)} 
         sortBy={sortBy} onSortByChange={mySort => setSortBy(mySort)}/>

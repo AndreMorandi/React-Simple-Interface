@@ -1,8 +1,32 @@
 import { useState } from "react";
 import { BiCalendarPlus } from "react-icons/bi"
 
-const Items = () => {
+const Items = ({onSendItem, lastId}) => {
+
+    const clearData = {
+        productName: '',
+        companyName: '',
+        date: '',
+        time: '',
+        description: ''
+    }
+
     let [toggleForm, setToggleForm] = useState(false);
+    let [formData, setFormData] = useState(clearData);
+
+    function formDataPublish() {
+        const itemInfo = {
+            id: lastId + 1,
+            productName: formData.productName,
+            companyName: formData.companyName,
+            date: formData.date + ' ' + formData.time,
+            description: formData.description
+        }
+        onSendItem(itemInfo);
+        setFormData(clearData);
+        setToggleForm(!toggleForm);
+    }
+
     return (
         <div>
             <button onClick={() => {setToggleForm(!toggleForm)}} 
@@ -18,6 +42,8 @@ const Items = () => {
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                         <input type="text" name="productName" id="productName"
+                            onChange={(event) => {setFormData({...formData, productName: event.target.value})}}
+                            value={formData.productName}
                             className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                         </div>
                     </div>
@@ -28,6 +54,8 @@ const Items = () => {
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                         <input type="text" name="companyName" id="companyName"
+                            onChange={(event) => {setFormData({...formData, companyName: event.target.value})}}
+                            value={formData.companyName}
                             className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                         </div>
                     </div>
@@ -38,6 +66,8 @@ const Items = () => {
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                         <input type="date" name="date" id="date"
+                            onChange={(event) => {setFormData({...formData, date: event.target.value})}}
+                            value={formData.date}
                             className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                         </div>
                     </div>
@@ -48,6 +78,8 @@ const Items = () => {
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                         <input type="time" name="time" id="time"
+                            onChange={(event) => {setFormData({...formData, time: event.target.value})}}
+                            value={formData.time}
                             className="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md" />
                         </div>
                     </div>
@@ -58,6 +90,8 @@ const Items = () => {
                         </label>
                         <div className="mt-1 sm:mt-0 sm:col-span-2">
                         <textarea id="description" name="description" rows="3"
+                            onChange={(event) => {setFormData({...formData, description: event.target.value})}}
+                            value={formData.description}
                             className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Description about the product"></textarea>
                         </div>
                     </div>
@@ -65,7 +99,9 @@ const Items = () => {
             
                     <div className="pt-5">
                         <div className="flex justify-end">
-                        <button type="submit" className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">
+                        <button type="submit" 
+                                onClick={formDataPublish}
+                                className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400">
                             Submit
                         </button>
                         </div>
