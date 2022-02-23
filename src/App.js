@@ -7,6 +7,17 @@ import Search from "./components/Search";
 function App() {
 
   let [itemList, setItemList] = useState([]);
+  let [query, setQuery] = useState("");
+
+  const filteredItems = itemList.filter(
+    item => {
+      return (
+        item.productName.toLowerCase().includes(query.toLowerCase()) ||
+        item.companyName.toLowerCase().includes(query.toLowerCase()) ||
+        item.description.toLowerCase().includes(query.toLowerCase())
+      )
+    }
+  )
 
   const fetchData = useCallback(() => {
     fetch('./data.json') // Anything in the public folder will appear at the same level of your application once it has been pushed up into a server.
@@ -27,11 +38,11 @@ function App() {
           <BiCart className="inline-block align-top text-blue-500"/> Your items
       </h1>
       <Items />
-      <Search />
+      <Search query={query} onQueryChange={myQuery => setQuery(myQuery)}/>
 
       <ul className="divide-y divide-gray-200">
         {
-          itemList.map(item => (
+          filteredItems.map(item => (
             <ItemInfo key={item.id}
                 item={item}
                 onDeleteItem = {
